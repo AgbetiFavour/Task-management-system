@@ -14,7 +14,7 @@ const router = express.Router();
 
 
 router
-  .route('/')
+  .route('/all')
   .get(taskController.getAllTasks) 
   .post(
     authController.protect,

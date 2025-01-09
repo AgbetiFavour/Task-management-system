@@ -27,14 +27,8 @@ app.set('views', path.join(__dirname, 'views'));
 // 1) GLOBAL MIDDLEWARES
 // Implement CORS
 app.use(cors());
-// Access-Control-Allow-Origin *
-// api.natours.com, front-end natours.com
-// app.use(cors({
-//   origin: 'https://www.natours.com'
-// }))
 
 app.options('*', cors());
-// app.options('/api/v1/tours/:id', cors());
 
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -90,11 +84,9 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
-// app.use('/', viewRouter);
+
 app.use('/api/v1/tasks', taskRouter);
 app.use('/api/v1/users', userRouter);
-// app.use('/api/v1/reviews', reviewRouter);
-// app.use('/api/v1/bookings', bookingRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
