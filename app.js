@@ -90,9 +90,7 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
-app.get("/", (req, res) => {
-	res.send("Welcome to your API!") // Or render a view, send JSON, etc.
-})
+// app.use('/', viewRouter);
 app.use('/api/v1/tasks', taskRouter);
 app.use('/api/v1/users', userRouter);
 // app.use('/api/v1/reviews', reviewRouter);
