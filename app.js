@@ -88,7 +88,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/tasks', taskRouter);
 app.use('/api/v1/users', userRouter);
 app.get('/', (req,res) => {
-  return res.statusCode(200).json({
+  return res.status(200).json({
     response: 'welcome'
   })
 } );
