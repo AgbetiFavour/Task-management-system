@@ -85,8 +85,13 @@ app.use((req, res, next) => {
 
 // 3) ROUTES
 
-app.use('api/v1/tasks', taskRouter);
+app.use('/api/v1/tasks', taskRouter);
 app.use('/api/v1/users', userRouter);
+app.get('/', (req,res) => {
+  return res.statusCode(200).json({
+    response: 'welcome'
+  })
+} );
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
